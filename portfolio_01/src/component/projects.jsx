@@ -96,7 +96,7 @@ const Projects = () => {
                 </a>
                 {project.demo !== "#" && (
                   <a 
-                    href={"https://github.com/nandini627/website2"}
+                    href={project.demo}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="project-link demo-link"
