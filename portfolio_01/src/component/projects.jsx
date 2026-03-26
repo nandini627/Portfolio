@@ -8,7 +8,7 @@ const Projects = () => {
     {
       title: "NASA Website Clone",
       description: "A high-fidelity clone of the NASA official website, demonstrating advanced HTML5 and CSS3 layouts with a focus on cosmic aesthetics and responsive design.",
-      technologies: ['HTML5', 'CSS3', 'Responsive Design', 'Cosmic UI'],
+      technologies: ['HTML5', 'CSS3', 'Cosmic UI'],
       github: "https://github.com/nandini627/website2",
       demo: "#", 
       youtube: "https://www.youtube.com/watch?v=m0Wa5p8lX-8",
@@ -22,26 +22,10 @@ const Projects = () => {
       ]
     },
     {
-      title: "Vanta Website Clone",
-      description: "A sleek, professional clone of the Vanta landing page. Features a clean, dark-themed design with smooth transitions and modern web standards.",
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX'],
-      github: "https://github.com/nandini627/website-6",
-      demo: "#",
-      youtube: "https://www.youtube.com/watch?v=r4KhJcI5zMg",
-      icon: "🌌",
-      accentColor: "#FF00FF",
-      features: [
-        "Dark mode aesthetics",
-        "Clean semantic markup",
-        "Smooth scroll effects",
-        "Premium professional look"
-      ]
-    },
-    {
       title: "Giva Website Clone",
       description: "An elegant jewelry e-commerce frontend clone. Showcases product grids, hover effects, and a sophisticated design language for luxury brands.",
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
-      github: "http://github.com/nandini627/website-4",
+      technologies: ['HTML5', 'CSS3', 'JS', 'Responsive'],
+      github: "https://github.com/nandini627/website-4",
       demo: "#",
       youtube: "https://www.youtube.com/watch?v=PQOFuMWsulU",
       icon: "💎",
@@ -51,6 +35,22 @@ const Projects = () => {
         "Elegant hover interactions",
         "Luxury branding UI",
         "Mobile-first responsive design"
+      ]
+    },
+    {
+      title: "Vanta Website Clone",
+      description: "A sleek, professional clone of the Vanta landing page. Features a clean, dark-themed design with smooth transitions and modern web standards.",
+      technologies: ['HTML5', 'CSS3', 'UI/UX'],
+      github: "https://github.com/nandini627/website-6",
+      demo: "#",
+      youtube: "https://www.youtube.com/watch?v=r4KhJcI5zMg",
+      icon: "🌌",
+      accentColor: "#8B5CF6",
+      features: [
+        "Dark mode aesthetics",
+        "Clean semantic markup",
+        "Smooth scroll effects",
+        "Premium professional look"
       ]
     }
   ];
@@ -81,7 +81,7 @@ const Projects = () => {
               {/* Optional: Video Thumbnail Preview */}
               <div className="project-video-preview" style={{ marginBottom: '20px', borderRadius: '15px', overflow: 'hidden', position: 'relative', height: '180px', background: '#000' }}>
                 <img 
-                  src={`https://img.youtube.com/vi/${new URLSearchParams(new URL(project.youtube.replace('watch?v=', '?v=')).search).get('v')}/mqdefault.jpg`} 
+                  src={`https://img.youtube.com/vi/${project.youtube.split('v=')[1]?.split('&')[0]}/hqdefault.jpg`} 
                   alt={project.title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
                 />
@@ -103,6 +103,15 @@ const Projects = () => {
               </div>
               
               <p className="project-description text-sm opacity-80">{project.description}</p>
+              
+              <div className="project-features-list">
+                {project.features.map((feature, i) => (
+                  <div key={i} className="feature-item">
+                    <div className="feature-dot" style={{ backgroundColor: project.accentColor }}></div>
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
               
               <div className="project-technologies" style={{ margin: '15px 0' }}>
                 {project.technologies.map((tech, i) => (
