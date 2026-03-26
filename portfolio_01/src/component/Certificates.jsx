@@ -1,32 +1,35 @@
 import React from 'react';
 import { FaGraduationCap, FaExternalLinkAlt, FaAward, FaSearchPlus } from 'react-icons/fa';
 import useScrollReveal from '../hooks/useScrollReveal';
+import be10xAi from '../assets/certificates/be10x_ai.jpg';
+import googleGemini from '../assets/certificates/google_gemini.jpg';
+import sololearnC from '../assets/certificates/sololearn_c.jpg';
 
 const Certificates = () => {
   useScrollReveal();
   const certifications = [
     {
-      title: "Data Visualization with Python",
-      issuer: "Guvi / Skill-Lync",
-      date: "2024",
-      image: "https://images.unsplash.com/photo-1513258496099-48168024adb0?q=80&w=1470&auto=format&fit=crop", 
-      color: "#FF00FF",
+      title: "AI Tools & ChatGPT Workshop",
+      issuer: "be10x (Co-founder: Aditya Goenka)",
+      date: "January 11th, 2026",
+      image: be10xAi,
+      color: "#222222",
       link: "#"
     },
     {
-      title: "Full Stack Development Foundations",
-      issuer: "FreeCodeCamp",
-      date: "2024",
-      image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1471&auto=format&fit=crop",
-      color: "#A855F7",
+      title: "Gemini for Google Workspace",
+      issuer: "Simplilearn / SkillUp / Google Cloud",
+      date: "December 30th, 2025",
+      image: googleGemini,
+      color: "#4285F4",
       link: "#"
     },
     {
-      title: "Responsive Web Design",
-      issuer: "FreeCodeCamp",
-      date: "2023",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1470&auto=format&fit=crop",
-      color: "#6366F1",
+      title: "Introduction to C",
+      issuer: "Sololearn (Chief Executive: Yeva Hyusyan)",
+      date: "October 6th, 2025",
+      image: sololearnC,
+      color: "#8B5CF6",
       link: "#"
     }
   ];
