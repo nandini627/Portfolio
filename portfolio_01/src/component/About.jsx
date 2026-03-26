@@ -1,17 +1,19 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaUniversity } from 'react-icons/fa';
 import { SiTarget } from 'react-icons/si';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const About = () => {
+  useScrollReveal();
   return (
     <section id="about" className="about">
       <div className="container">
-        <h2 className="section-title">
+        <h2 className="section-title reveal-on-scroll">
           <span className="section-title-bg">About Me</span>
         </h2>
         
         <div className="about-grid">
-          <div className="about-card cosmic-card">
+          <div className="about-card cosmic-card reveal-on-scroll">
             <div className="card-header">
               <h3>Who Am I?</h3>
               <div className="card-icon">👩‍💻</div>
@@ -35,7 +37,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="about-card info-card">
+          <div className="about-card info-card reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
             <div className="card-header">
               <h3>Personal Info</h3>
               <div className="card-icon">📋</div>
@@ -83,4 +85,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About;

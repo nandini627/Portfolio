@@ -1,7 +1,9 @@
 import React from 'react';
 import { FaGraduationCap, FaSchool, FaUniversity, FaBook, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Education = () => {
+  useScrollReveal();
   const educationData = [
     {
       period: "2023 - Present",
@@ -28,15 +30,21 @@ const Education = () => {
   return (
     <section id="education" className="education" style={{ background: 'transparent' }}>
       <div className="container">
-        <h2 className="section-title">
+        <h2 className="section-title reveal-on-scroll">
           <span className="section-title-bg">Education Journey</span>
         </h2>
 
         <div className="edu-cards-grid">
           {educationData.map((edu, index) => (
-            <div key={index} className="edu-card">
+            <div 
+              key={index} 
+              className="edu-card reveal-on-scroll"
+              style={{ transitionDelay: `${index * 0.15}s` }}
+            >
               <div className="edu-card-top">
-                <span className="edu-icon">{edu.icon}</span>
+                <span className="edu-icon">
+                  {edu.icon}
+                </span>
                 <span className={`edu-badge ${edu.status === 'Currently Pursuing' ? 'badge-current' : 'badge-done'}`}>
                   {edu.status}
                 </span>
@@ -56,7 +64,7 @@ const Education = () => {
               <p className="edu-description">{edu.description}</p>
               <div className="edu-tags">
                 {edu.tags.map((tag, i) => (
-                  <span key={i} className="edu-tag">{tag}</span>
+                  <span key={i} className="edu-tag shadow-glow">{tag}</span>
                 ))}
               </div>
             </div>
@@ -69,8 +77,14 @@ const Education = () => {
             { icon: '💻', title: 'Self-Study Projects', desc: 'Building real projects to apply theoretical knowledge practically.' },
             { icon: '🤝', title: 'Tech Communities', desc: 'Engaging with developer communities for growth and networking.' }
           ].map((item, i) => (
-            <div key={i} className="extra-card">
-              <div className="extra-card-icon">{item.icon}</div>
+            <div 
+              key={i} 
+              className="extra-card reveal-on-scroll"
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <div className="extra-card-icon">
+                {item.icon}
+              </div>
               <h4>{item.title}</h4>
               <p>{item.desc}</p>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaRocket } from 'react-icons/fa';
 import { SiSpacex } from 'react-icons/si';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Counter = ({ end, duration, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -53,30 +54,31 @@ const Typewriter = ({ texts, speed = 150, delay = 2000 }) => {
 };
 
 const Hero = () => {
+  useScrollReveal();
   return (
     <section id="home" className="hero">
       <div className="stars"></div>
       <div className="twinkling"></div>
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div className="hero-wrapper">
-          <div className="hero-content">
-            <div className="hero-badge" style={{ display: 'inline-flex', padding: '10px 25px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50px', marginBottom: '30px', border: '1.5px solid rgba(255, 255, 255, 0.2)' }}>
+          <div className="hero-content fade-in">
+            <div className="hero-badge reveal-on-scroll" style={{ display: 'inline-flex', padding: '10px 25px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50px', marginBottom: '30px', border: '1.5px solid rgba(255, 255, 255, 0.2)' }}>
               <FaRocket style={{ color: 'var(--theme-pink)', marginRight: '10px' }} /> Aspiring Software Developer
             </div>
-            <h1 className="hero-title">
+            <h1 className="hero-title reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>
               Hello, I'm <br />
               <span className="logo-gradient typing-once" style={{ display: 'inline-block' }}>
                 Nandini Prajapati
               </span>
             </h1>
-            <h2 className="hero-subtitle">
+            <h2 className="hero-subtitle reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
               I'm a <Typewriter texts={["Software Developer", "AI/ML Enthusiast", "CS Student", "Tech Innovator"]} />
             </h2>
-            <p className="hero-description">
+            <p className="hero-description reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
               First-year B.E. Computer Science student from CodingGita x Swaminarayan University. 
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
-            <div className="hero-buttons" style={{ display: 'flex', gap: '20px', marginBottom: '50px' }}>
+            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '20px', marginBottom: '50px', transitionDelay: '0.4s' }}>
               <a href="#projects" className="btn">
                 <SiSpacex style={{ fontSize: '1.4rem' }} /> View My Projects
               </a>
@@ -85,7 +87,7 @@ const Hero = () => {
               </a>
             </div>
             
-            <div className="hero-stats">
+            <div className="hero-stats reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
               <div className="stat-item">
                 <div className="stat-number">
                   <Counter end={2} duration={2000} suffix="+" />
@@ -109,7 +111,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-photo-side">
+          <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
             <div className="photo-frame">
               <div className="photo-placeholder">
                 <img 

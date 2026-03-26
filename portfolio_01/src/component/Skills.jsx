@@ -2,8 +2,10 @@ import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt } from 'react-icons/fa';
 import { SiC, SiPostman } from 'react-icons/si';
 import { RiNodejsLine } from 'react-icons/ri';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Skills = () => {
+  useScrollReveal();
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -33,20 +35,23 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <h2 className="section-title">
+        <h2 className="section-title reveal-on-scroll">
           <span className="section-title-bg">Technical Skills</span>
         </h2>
         
         <div className="skills-container">
           {skillCategories.map((category, idx) => (
             <div key={idx} className="skill-category-section">
-              <h3 className="category-title">{category.title}</h3>
+              <h3 className="category-title reveal-on-scroll">{category.title}</h3>
               <div className="skills-grid">
-                {category.skills.map((skill) => (
+                {category.skills.map((skill, sIdx) => (
                   <div 
                     key={skill.name} 
-                    className="skill-card attractive-card"
-                    style={{ '--skill-color': skill.color }}
+                    className="skill-card attractive-card reveal-on-scroll"
+                    style={{ 
+                      '--skill-color': skill.color,
+                      transitionDelay: `${sIdx * 0.1}s`
+                    }}
                   >
                     <div className="skill-icon" style={{ color: skill.color }}>
                       {skill.icon}
@@ -60,7 +65,7 @@ const Skills = () => {
           ))}
         </div>
         
-        <div className="learning-next attractive-learning">
+        <div className="learning-next attractive-learning reveal-on-scroll">
           <h3 className="learning-title">Innovating With</h3>
           <div className="learning-tags">
             <span className="tech-tag pink-tag">AI / ML</span>
