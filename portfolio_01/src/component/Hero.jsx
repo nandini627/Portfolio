@@ -78,11 +78,11 @@ const Hero = () => {
               First-year B.E. Computer Science student from CodingGita x Swaminarayan University. 
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
-            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '20px', marginBottom: '50px', transitionDelay: '0.4s' }}>
-              <a href="#projects" className="btn">
+            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '20px', marginBottom: '30px', transitionDelay: '0.4s' }}>
+              <a href="#projects" className="btn glowing-btn">
                 <SiSpacex style={{ fontSize: '1.4rem' }} /> View My Projects
               </a>
-              <a href="#contact" className="btn" style={{ background: 'transparent', border: '2.5px solid var(--theme-pink)', color: 'var(--theme-white)' }}>
+              <a href="#contact" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '2.5px solid var(--theme-pink)', color: 'var(--theme-white)' }}>
                 Let's Connect
               </a>
             </div>
@@ -94,14 +94,14 @@ const Hero = () => {
                 </div>
                 <div className="stat-label">Projects</div>
               </div>
-              <div style={{ width: '1.5px', height: '50px', background: 'var(--theme-pink)', opacity: 0.3 }}></div>
+              <div style={{ width: '1.5px', height: '40px', background: 'var(--theme-pink)', opacity: 0.3 }}></div>
               <div className="stat-item">
                 <div className="stat-number">
                   <Counter end={8} duration={2000} suffix="+" />
                 </div>
                 <div className="stat-label">Skills</div>
               </div>
-              <div style={{ width: '1.5px', height: '50px', background: 'var(--theme-pink)', opacity: 0.3 }}></div>
+              <div style={{ width: '1.5px', height: '40px', background: 'var(--theme-pink)', opacity: 0.3 }}></div>
               <div className="stat-item">
                 <div className="stat-number">
                   <Counter end={100} duration={2000} suffix="%" />
@@ -111,8 +111,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
-            <div className="photo-frame">
+          <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s', transform: 'translateY(-90px)' }}>
+            <div className="photo-frame" style={{ width: '380px', height: '380px' }}>
               <div className="photo-placeholder">
                 <img 
                   src="https://res.cloudinary.com/dxnsg3spg/image/upload/v1770363089/Screenshot_2026-02-06_125845_dwc6nw.png" 

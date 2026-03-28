@@ -11,7 +11,7 @@ const About = () => {
         <h2 className="section-title reveal-on-scroll">
           <span className="section-title-bg">About Me</span>
         </h2>
-        
+
         <div className="about-grid">
           <div className="about-card cosmic-card reveal-on-scroll">
             <div className="card-header">
@@ -19,19 +19,19 @@ const About = () => {
               <div className="card-icon">👩‍💻</div>
             </div>
             <p className="about-intro">
-              Hello! I'm <strong>Nandini Prajapati</strong> from BK, Gujarat. 
-              I'm deeply passionate about innovative technology, especially in the fields of 
-              <span className="highlight-text"> Artificial Intelligence</span> and 
+              Hello! I'm <strong>Nandini Prajapati</strong> from BK, Gujarat.
+              I'm deeply passionate about innovative technology, especially in the fields of
+              <span className="highlight-text"> Artificial Intelligence</span> and
               <span className="highlight-text"> Machine Learning</span>.
             </p>
             <p>
-              As a first-year B.E. Computer Science student, I'm building my foundation in 
+              As a first-year B.E. Computer Science student, I'm building my foundation in
               software development while exploring cutting-edge technologies that shape our future.
             </p>
             <div className="mission-statement">
               <SiTarget className="mission-icon" />
               <p>
-                <strong>My Mission:</strong> To contribute meaningfully to the tech industry 
+                <strong>My Mission:</strong> To contribute meaningfully to the tech industry
                 by creating innovative solutions that make a difference.
               </p>
             </div>
@@ -42,7 +42,7 @@ const About = () => {
               <h3>Personal Info</h3>
               <div className="card-icon">📋</div>
             </div>
-            
+
             <div className="info-grid">
               <div className="info-item">
                 <FaEnvelope className="info-icon" />
@@ -53,7 +53,7 @@ const About = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <FaMapMarkerAlt className="info-icon" />
                 <div>
@@ -61,7 +61,7 @@ const About = () => {
                   <span className="info-value">Gandhinagar, Gujarat</span>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <FaUniversity className="info-icon" />
                 <div>
@@ -69,7 +69,7 @@ const About = () => {
                   <span className="info-value">CodingGita x Swaminarayan University</span>
                 </div>
               </div>
-              
+
               <div className="info-item">
                 <FaGraduationCap className="info-icon" />
                 <div>
@@ -85,4 +85,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About;

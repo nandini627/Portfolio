@@ -8,7 +8,7 @@ import Skills from './component/Skills.jsx';
 import Projects from './component/projects.jsx';
 import Education from './component/Education.jsx';
 import Certificates from './component/Certificates.jsx';
-import Contact from './component/Contact.jsx';
+import Footer from './component/Footer.jsx';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <Projects />
       <Education />
       <Certificates />
-      <Contact />
+      <Footer />
     </div>
   );
 }
