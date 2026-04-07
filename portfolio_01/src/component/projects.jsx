@@ -14,6 +14,7 @@ const Projects = () => {
       youtube: "https://www.youtube.com/watch?v=m0Wa5p8lX-8",
       icon: "🚀",
       accentColor: "#0B3D91",
+      accentColorRgb: "11, 61, 145",
       features: [
         "Interactive space-themed UI",
         "Modern CSS Flexbox/Grid",
@@ -30,6 +31,7 @@ const Projects = () => {
       youtube: "https://www.youtube.com/watch?v=PQOFuMWsulU",
       icon: "💎",
       accentColor: "#D4AF37",
+      accentColorRgb: "212, 175, 55",
       features: [
         "Product showcasing layout",
         "Elegant hover interactions",
@@ -46,6 +48,7 @@ const Projects = () => {
       youtube: "https://www.youtube.com/watch?v=r4KhJcI5zMg",
       icon: "🌌",
       accentColor: "#8B5CF6",
+      accentColorRgb: "139, 92, 246",
       features: [
         "Dark mode aesthetics",
         "Clean semantic markup",
@@ -72,67 +75,73 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="project-card reveal-on-scroll"
+              className="project-card-wrapper"
               style={{ 
                 '--accent-color': project.accentColor,
-                transitionDelay: `${index * 0.15}s`
+                '--accent-color-rgb': project.accentColorRgb,
+                '--float-delay': `${index * -1.2}s`
               }}
             >
-              {/* Optional: Video Thumbnail Preview */}
-              <div className="project-video-preview" style={{ marginBottom: '20px', borderRadius: '15px', overflow: 'hidden', position: 'relative', height: '180px', background: '#000' }}>
-                <img 
-                  src={`https://img.youtube.com/vi/${project.youtube.split('v=')[1]?.split('&')[0]}/hqdefault.jpg`} 
-                  alt={project.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
-                />
-                <a href={project.youtube} target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: '#fff', fontSize: '3rem' }}>
-                  <FaPlayCircle />
-                </a>
-              </div>
-
-              <div className="project-header">
-                <div className="project-icon" style={{ color: project.accentColor }}>
-                  {project.icon}
-                </div>
-                <div className="project-title-wrapper">
-                  <h3>{project.title}</h3>
-                  <div className="project-badge">
-                    <FaCode /> Personal Project
-                  </div>
-                </div>
-              </div>
-              
-              <p className="project-description text-sm opacity-80">{project.description}</p>
-              
-              <div className="project-features-list">
-                {project.features.map((feature, i) => (
-                  <div key={i} className="feature-item">
-                    <div className="feature-dot" style={{ backgroundColor: project.accentColor }}></div>
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="project-technologies" style={{ margin: '15px 0' }}>
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="tech-tag">{tech}</span>
-                ))}
-              </div>
-              
-              <div className="project-links" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link" title="Source Code">
-                  <FaGithub /> Source
-                </a>
-                
-                {project.demo !== "#" && (
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link demo-link" style={{ background: 'var(--theme-pink)', borderColor: 'var(--theme-pink)' }}>
-                    <FaExternalLinkAlt /> Live Demo
+              <div 
+                className="project-card reveal-on-scroll"
+                style={{ 
+                  transitionDelay: `${index * 0.15}s`
+                }}
+              >
+                <div className="project-video-preview">
+                  <img 
+                    src={`https://img.youtube.com/vi/${project.youtube.split('v=')[1]?.split('&')[0]}/hqdefault.jpg`} 
+                    alt={project.title}
+                  />
+                  <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="play-button-overlay">
+                    <FaPlayCircle />
                   </a>
-                )}
+                </div>
 
-                <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="project-link yt-link" style={{ border: '1.5px solid #FF0000', color: '#FF0000', background: 'rgba(255,0,0,0.05)' }}>
-                  <FaYoutube /> Demo Video
-                </a>
+                <div className="project-header">
+                  <div className="project-icon" style={{ '--accent-color': project.accentColor }}>
+                    {project.icon}
+                  </div>
+                  <div className="project-title-wrapper">
+                    <h3>{project.title}</h3>
+                    <div className="project-badge">
+                      <FaCode /> Personal Project
+                    </div>
+                  </div>
+                </div>
+                
+                <p className="project-description text-sm opacity-80">{project.description}</p>
+                
+                <div className="project-features-list">
+                  {project.features.map((feature, i) => (
+                    <div key={i} className="feature-item">
+                      <div className="feature-dot" style={{ backgroundColor: project.accentColor }}></div>
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="project-technologies" style={{ margin: '15px 0' }}>
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+                
+                <div className="project-links" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link" title="Source Code">
+                    <FaGithub /> Source
+                  </a>
+                  
+                  {project.demo !== "#" && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link demo-link" style={{ background: 'var(--theme-pink)', borderColor: 'var(--theme-pink)' }}>
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  )}
+
+                  <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="project-link yt-link" style={{ border: '1.5px solid #FF0000', color: '#FF0000', background: 'rgba(255,0,0,0.05)' }}>
+                    <FaYoutube /> Demo Video
+                  </a>
+                </div>
               </div>
             </div>
           ))}

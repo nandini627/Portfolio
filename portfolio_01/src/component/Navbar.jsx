@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import NameLogo from './NameLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +11,8 @@ const Navbar = () => {
     { name: 'ABOUT', href: '#about', id: 'about' },
     { name: 'SKILLS', href: '#skills', id: 'skills' },
     { name: 'PROJECTS', href: '#projects', id: 'projects' },
-    { name: 'EDUCATION', href: '#education', id: 'education' },
     { name: 'CERTIFICATES', href: '#certificates', id: 'certificates' },
+    { name: 'EDUCATION', href: '#education', id: 'education' },
     { name: 'CONTACT', href: '#contact', id: 'contact' }
   ];
 
@@ -42,8 +43,8 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-container">
           <div className="logo">
-            <a href="#home" style={{ textDecoration: 'none' }}>
-              <span className="logo-gradient" style={{ fontSize: '2rem', fontWeight: 800 }}>Nandini</span>
+            <a href="#home" style={{ display: 'flex', alignItems: 'center' }}>
+              <NameLogo size={55} />
             </a>
           </div>
 

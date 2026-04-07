@@ -6,7 +6,7 @@ const Education = () => {
   useScrollReveal();
   const educationData = [
     {
-      period: "2023 - Present",
+      period: "2025 - Present",
       degree: "Bachelor of Engineering (B.E.) in Computer Science",
       institution: "CodingGita x Swaminarayan University",
       location: "Gandhinagar, Gujarat",

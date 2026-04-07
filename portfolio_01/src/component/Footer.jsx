@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaHeart, FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 import { SiLeetcode, SiGmail } from 'react-icons/si';
+import NameLogo from './NameLogo';
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -47,7 +48,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-contact-wrapper">
           <div className="footer-info-column">
-            <h2 className="footer-logo">Nandini<span>.</span></h2>
+            <div className="footer-logo-wrapper" style={{ marginBottom: '20px' }}>
+              <NameLogo size={60} />
+            </div>
             <p className="footer-tagline">Building the next generation of cosmic AI & Web experiences.</p>
             
             <div className="footer-contact-info">

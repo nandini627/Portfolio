@@ -78,12 +78,18 @@ const Hero = () => {
               First-year B.E. Computer Science student from CodingGita x Swaminarayan University. 
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
-            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '20px', marginBottom: '30px', transitionDelay: '0.4s' }}>
+            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '30px', transitionDelay: '0.4s' }}>
               <a href="#projects" className="btn glowing-btn">
-                <SiSpacex style={{ fontSize: '1.4rem' }} /> View My Projects
+                <SiSpacex style={{ fontSize: '1.4rem' }} /> View Projects
               </a>
-              <a href="#contact" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '2.5px solid var(--theme-pink)', color: 'var(--theme-white)' }}>
-                Let's Connect
+              <a href="#certificates" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
+                Certificates
+              </a>
+              <a href="#education" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
+                Education
+              </a>
+              <a href="#contact" className="btn-link" style={{ marginLeft: '10px', alignSelf: 'center', color: 'var(--theme-pink)', fontWeight: 700 }}>
+                Let's Connect →
               </a>
             </div>
             

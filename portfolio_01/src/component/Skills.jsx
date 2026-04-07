@@ -50,6 +50,7 @@ const Skills = () => {
                     className="skill-card attractive-card reveal-on-scroll"
                     style={{ 
                       '--skill-color': skill.color,
+                      '--float-delay': `${sIdx * -0.8}s`,
                       transitionDelay: `${sIdx * 0.1}s`
                     }}
                   >
