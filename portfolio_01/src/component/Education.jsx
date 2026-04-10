@@ -38,7 +38,7 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <div 
               key={index} 
-              className="edu-card reveal-on-scroll"
+              className={`edu-card reveal-on-scroll ${index % 2 === 0 ? 'reveal-left' : 'reveal-right'}`}
               style={{ transitionDelay: `${index * 0.15}s` }}
             >
               <div className="edu-card-top">
@@ -79,7 +79,7 @@ const Education = () => {
           ].map((item, i) => (
             <div 
               key={i} 
-              className="extra-card reveal-on-scroll"
+              className={`extra-card reveal-on-scroll ${i === 0 ? 'reveal-left' : i === 2 ? 'reveal-right' : ''}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
               <div className="extra-card-icon">

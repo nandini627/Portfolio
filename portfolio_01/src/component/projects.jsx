@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaExternalLinkAlt, FaRocket, FaCode, FaYoutube, FaPlayCircle } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaPlayCircle, FaRocket } from 'react-icons/fa';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Projects = () => {
@@ -7,54 +7,30 @@ const Projects = () => {
   const projects = [
     {
       title: "NASA Website Clone",
-      description: "A high-fidelity clone of the NASA official website, demonstrating advanced HTML5 and CSS3 layouts with a focus on cosmic aesthetics and responsive design.",
       technologies: ['HTML5', 'CSS3', 'Cosmic UI'],
       github: "https://github.com/nandini627/website2",
-      demo: "#", 
       youtube: "https://www.youtube.com/watch?v=m0Wa5p8lX-8",
       icon: "🚀",
       accentColor: "#0B3D91",
       accentColorRgb: "11, 61, 145",
-      features: [
-        "Interactive space-themed UI",
-        "Modern CSS Flexbox/Grid",
-        "Optimized image handling",
-        "Fully responsive layout"
-      ]
     },
     {
       title: "Giva Website Clone",
-      description: "An elegant jewelry e-commerce frontend clone. Showcases product grids, hover effects, and a sophisticated design language for luxury brands.",
-      technologies: ['HTML5', 'CSS3', 'JS', 'Responsive'],
+      technologies: ['HTML5', 'CSS3', 'JS'],
       github: "https://github.com/nandini627/website-4",
-      demo: "#",
       youtube: "https://www.youtube.com/watch?v=PQOFuMWsulU",
       icon: "💎",
       accentColor: "#D4AF37",
       accentColorRgb: "212, 175, 55",
-      features: [
-        "Product showcasing layout",
-        "Elegant hover interactions",
-        "Luxury branding UI",
-        "Mobile-first responsive design"
-      ]
     },
     {
       title: "Vanta Website Clone",
-      description: "A sleek, professional clone of the Vanta landing page. Features a clean, dark-themed design with smooth transitions and modern web standards.",
       technologies: ['HTML5', 'CSS3', 'UI/UX'],
       github: "https://github.com/nandini627/website-6",
-      demo: "#",
       youtube: "https://www.youtube.com/watch?v=r4KhJcI5zMg",
       icon: "🌌",
       accentColor: "#8B5CF6",
       accentColorRgb: "139, 92, 246",
-      features: [
-        "Dark mode aesthetics",
-        "Clean semantic markup",
-        "Smooth scroll effects",
-        "Premium professional look"
-      ]
     }
   ];
 
@@ -65,32 +41,24 @@ const Projects = () => {
           <span className="section-title-bg">My Projects</span>
         </h2>
 
-        <div className="project-intro reveal-on-scroll">
-          <p className="intro-text">
-            Check out some of my key projects with live demos and video walkthroughs!
-          </p>
-        </div>
-
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="project-card-wrapper"
-              style={{ 
+            <div
+              key={index}
+              className={`project-card-wrapper reveal-on-scroll ${index % 3 === 0 ? 'reveal-left' : index % 3 === 2 ? 'reveal-right' : ''}`}
+              style={{
                 '--accent-color': project.accentColor,
                 '--accent-color-rgb': project.accentColorRgb,
-                '--float-delay': `${index * -1.2}s`
+                '--float-delay': `${index * -1.2}s`,
+                transitionDelay: `${index * 0.15}s`
               }}
             >
-              <div 
-                className="project-card reveal-on-scroll"
-                style={{ 
-                  transitionDelay: `${index * 0.15}s`
-                }}
-              >
+              <div className="project-card">
+
+                {/* Thumbnail */}
                 <div className="project-video-preview">
-                  <img 
-                    src={`https://img.youtube.com/vi/${project.youtube.split('v=')[1]?.split('&')[0]}/hqdefault.jpg`} 
+                  <img
+                    src={`https://img.youtube.com/vi/${project.youtube.split('v=')[1]?.split('&')[0]}/hqdefault.jpg`}
                     alt={project.title}
                   />
                   <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="play-button-overlay">
@@ -98,72 +66,43 @@ const Projects = () => {
                   </a>
                 </div>
 
+                {/* Title row */}
                 <div className="project-header">
-                  <div className="project-icon" style={{ '--accent-color': project.accentColor }}>
-                    {project.icon}
-                  </div>
-                  <div className="project-title-wrapper">
-                    <h3>{project.title}</h3>
-                    <div className="project-badge">
-                      <FaCode /> Personal Project
-                    </div>
-                  </div>
+                  <div className="project-icon">{project.icon}</div>
+                  <h3 className="project-title-text">{project.title}</h3>
                 </div>
-                
-                <p className="project-description text-sm opacity-80">{project.description}</p>
-                
-                <div className="project-features-list">
-                  {project.features.map((feature, i) => (
-                    <div key={i} className="feature-item">
-                      <div className="feature-dot" style={{ backgroundColor: project.accentColor }}></div>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="project-technologies" style={{ margin: '15px 0' }}>
+
+                {/* Tech tags */}
+                <div className="project-technologies">
                   {project.technologies.map((tech, i) => (
                     <span key={i} className="tech-tag">{tech}</span>
                   ))}
                 </div>
-                
-                <div className="project-links" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link" title="Source Code">
-                    <FaGithub /> Source
-                  </a>
-                  
-                  {project.demo !== "#" && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="project-link demo-link" style={{ background: 'var(--theme-pink)', borderColor: 'var(--theme-pink)' }}>
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
-                  )}
 
+                {/* Links */}
+                <div className="project-links">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
+                    <FaGithub /> Code
+                  </a>
                   <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="project-link yt-link" style={{ border: '1.5px solid #FF0000', color: '#FF0000', background: 'rgba(255,0,0,0.05)' }}>
-                    <FaYoutube /> Demo Video
+                    <FaYoutube /> Demo
                   </a>
                 </div>
+
               </div>
             </div>
           ))}
         </div>
 
+        {/* Upcoming */}
         <div className="upcoming-projects reveal-on-scroll">
           <h3 className="upcoming-title">
-            <FaRocket /> Upcoming & In Progress
+            <FaRocket /> Upcoming &amp; In Progress
           </h3>
           <div className="upcoming-list">
-            <div className="upcoming-item">
-              <div className="upcoming-dot"></div>
-              <span>AI/ML Project using Python</span>
-            </div>
-            <div className="upcoming-item">
-              <div className="upcoming-dot"></div>
-              <span>Full-Stack E-commerce Website</span>
-            </div>
-            <div className="upcoming-item">
-              <div className="upcoming-dot"></div>
-              <span>React Native Mobile App</span>
-            </div>
+            <div className="upcoming-item"><div className="upcoming-dot"></div><span>AI/ML Project using Python</span></div>
+            <div className="upcoming-item"><div className="upcoming-dot"></div><span>Full-Stack E-commerce Website</span></div>
+            <div className="upcoming-item"><div className="upcoming-dot"></div><span>React Native Mobile App</span></div>
           </div>
         </div>
       </div>
