@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaGraduationCap, FaSchool, FaUniversity, FaBook, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaUniversity, FaCalendarAlt, FaMapMarkerAlt, FaUserGraduate, FaVideo, FaLightbulb } from 'react-icons/fa';
+import { FaUserGroup, FaBuildingColumns } from 'react-icons/fa6';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Education = () => {
@@ -11,7 +12,7 @@ const Education = () => {
       institution: "CodingGita x Swaminarayan University",
       location: "Gandhinagar, Gujarat",
       status: "Currently Pursuing",
-      icon: "🎓",
+      icon: <FaUserGraduate className="cosmic-icon" />,
       description: "Building a strong foundation in computer science fundamentals, programming, and software development.",
       tags: ["Programming", "Data Structures", "Web Development", "Mathematics for CS"]
     },
@@ -21,7 +22,7 @@ const Education = () => {
       institution: "Amrit Lal Nihalchand Mangal Mandir Vidhyalaya",
       location: "Gujarat",
       status: "Completed",
-      icon: "🏫",
+      icon: <FaBuildingColumns className="cosmic-icon" />,
       description: "Completed schooling with focus on science and mathematics, laying the groundwork for technical education.",
       tags: ["Science Stream", "Mathematics", "Computer Basics"]
     }
@@ -73,9 +74,9 @@ const Education = () => {
 
         <div className="extra-learning-grid">
           {[
-            { icon: '🌐', title: 'Online Courses', desc: 'Supplementing university education with platforms like Coursera, Udemy, and YouTube.' },
-            { icon: '💻', title: 'Self-Study Projects', desc: 'Building real projects to apply theoretical knowledge practically.' },
-            { icon: '🤝', title: 'Tech Communities', desc: 'Engaging with developer communities for growth and networking.' }
+            { icon: <FaVideo className="cosmic-icon" />, title: 'Online Courses', desc: 'Supplementing university education with platforms like Coursera, Udemy, and YouTube.' },
+            { icon: <FaLightbulb className="cosmic-icon" />, title: 'Self-Study Projects', desc: 'Building real projects to apply theoretical knowledge practically.' },
+            { icon: <FaUserGroup className="cosmic-icon" />, title: 'Tech Communities', desc: 'Engaging with developer communities for growth and networking.' }
           ].map((item, i) => (
             <div 
               key={i} 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaUniversity } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaUniversity, FaIdCard } from 'react-icons/fa';
+import { FaUserAstronaut } from 'react-icons/fa6';
 import { SiTarget } from 'react-icons/si';
 import useScrollReveal from '../hooks/useScrollReveal';
 
@@ -16,7 +17,9 @@ const About = () => {
           <div className="about-card cosmic-card reveal-on-scroll">
             <div className="card-header">
               <h3>Who Am I?</h3>
-              <div className="card-icon">👩‍💻</div>
+              <div className="card-icon">
+                <FaUserAstronaut className="cosmic-icon" />
+              </div>
             </div>
             <p className="about-intro">
               Hello! I'm <strong>Nandini Prajapati</strong> from BK, Gujarat.
@@ -29,7 +32,7 @@ const About = () => {
               software development while exploring cutting-edge technologies that shape our future.
             </p>
             <div className="mission-statement">
-              <SiTarget className="mission-icon" />
+              <SiTarget className="mission-icon cosmic-icon" style={{ fontSize: '2rem' }} />
               <p>
                 <strong>My Mission:</strong> To contribute meaningfully to the tech industry
                 by creating innovative solutions that make a difference.
@@ -40,12 +43,14 @@ const About = () => {
           <div className="about-card info-card reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
             <div className="card-header">
               <h3>Personal Info</h3>
-              <div className="card-icon">📋</div>
+              <div className="card-icon">
+                <FaIdCard className="cosmic-icon" />
+              </div>
             </div>
 
             <div className="info-grid">
               <div className="info-item">
-                <FaEnvelope className="info-icon" />
+                <FaEnvelope className="info-icon cosmic-icon-sm" />
                 <div>
                   <span className="info-label">Email</span>
                   <a href="mailto:bp623989@gmail.com" className="info-value">
@@ -55,7 +60,7 @@ const About = () => {
               </div>
 
               <div className="info-item">
-                <FaMapMarkerAlt className="info-icon" />
+                <FaMapMarkerAlt className="info-icon cosmic-icon-sm" />
                 <div>
                   <span className="info-label">Location</span>
                   <span className="info-value">Gandhinagar, Gujarat</span>
@@ -63,7 +68,7 @@ const About = () => {
               </div>
 
               <div className="info-item">
-                <FaUniversity className="info-icon" />
+                <FaUniversity className="info-icon cosmic-icon-sm" />
                 <div>
                   <span className="info-label">University</span>
                   <span className="info-value">CodingGita x Swaminarayan University</span>
@@ -71,7 +76,7 @@ const About = () => {
               </div>
 
               <div className="info-item">
-                <FaGraduationCap className="info-icon" />
+                <FaGraduationCap className="info-icon cosmic-icon-sm" />
                 <div>
                   <span className="info-label">Education</span>
                   <span className="info-value">B.E. Computer Science (First Year)</span>

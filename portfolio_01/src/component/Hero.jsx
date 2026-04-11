@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaRocket } from 'react-icons/fa';
+import { FaRocket, FaFileDownload } from 'react-icons/fa';
 import { SiSpacex } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Counter = ({ end, duration, suffix = "" }) => {
@@ -63,7 +64,7 @@ const Hero = () => {
         <div className="hero-wrapper">
           <div className="hero-content fade-in">
             <div className="hero-badge reveal-on-scroll" style={{ display: 'inline-flex', padding: '10px 25px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50px', marginBottom: '30px', border: '1.5px solid rgba(255, 255, 255, 0.2)' }}>
-              <FaRocket style={{ color: 'var(--theme-pink)', marginRight: '10px' }} /> Aspiring Software Developer
+              <FaRocket className="cosmic-icon-sm" style={{ marginRight: '10px' }} /> Aspiring Software Developer
             </div>
             <h1 className="hero-title reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>
               Hello, I'm <br />
@@ -79,18 +80,23 @@ const Hero = () => {
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
             <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '30px', transitionDelay: '0.4s' }}>
-              <a href="#projects" className="btn glowing-btn">
-                <SiSpacex style={{ fontSize: '1.4rem' }} /> View Projects
-              </a>
-              <a href="#certificates" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
+              <Link to="/projects" className="btn glowing-btn">
+                <SiSpacex className="cosmic-icon-sm" style={{ fontSize: '1.4rem', color: 'inherit' }} /> View Projects
+              </Link>
+              <Link to="/certificates" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
                 Certificates
+              </Link>
+              <a 
+                href="/Resume.pdf" 
+                download="Nandini_Prajapati_Resume.pdf"
+                className="btn glowing-btn-outline" 
+                style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px', textDecoration: 'none', display: 'flex', alignItems: 'center' }}
+              >
+                <FaFileDownload className="cosmic-icon-sm" style={{ marginRight: '8px' }} /> Resume
               </a>
-              <a href="#education" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
-                Education
-              </a>
-              <a href="#contact" className="btn-link" style={{ marginLeft: '10px', alignSelf: 'center', color: 'var(--theme-pink)', fontWeight: 700 }}>
+              <Link to="/contact" className="btn-link" style={{ marginLeft: '10px', alignSelf: 'center', color: 'var(--theme-pink)', fontWeight: 700 }}>
                 Let's Connect →
-              </a>
+              </Link>
             </div>
             
             <div className="hero-stats reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>

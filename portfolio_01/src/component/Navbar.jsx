@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import NameLogo from './NameLogo';
 
 const Navbar = () => {
@@ -7,13 +8,13 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
 
   const navItems = [
-    { name: 'HOME', href: '#home', id: 'home' },
-    { name: 'ABOUT', href: '#about', id: 'about' },
-    { name: 'SKILLS', href: '#skills', id: 'skills' },
-    { name: 'PROJECTS', href: '#projects', id: 'projects' },
-    { name: 'CERTIFICATES', href: '#certificates', id: 'certificates' },
-    { name: 'EDUCATION', href: '#education', id: 'education' },
-    { name: 'CONTACT', href: '#contact', id: 'contact' }
+    { name: 'HOME', href: '/', id: 'home' },
+    { name: 'ABOUT', href: '/about', id: 'about' },
+    { name: 'SKILLS', href: '/skills', id: 'skills' },
+    { name: 'PROJECTS', href: '/projects', id: 'projects' },
+    { name: 'CERTIFICATES', href: '/certificates', id: 'certificates' },
+    { name: 'EDUCATION', href: '/education', id: 'education' },
+    { name: 'CONTACT', href: '/contact', id: 'contact' }
   ];
 
   useEffect(() => {
@@ -43,21 +44,21 @@ const Navbar = () => {
       <div className="container">
         <div className="nav-container">
           <div className="logo">
-            <a href="#home" style={{ display: 'flex', alignItems: 'center' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
               <NameLogo size={55} />
-            </a>
+            </Link>
           </div>
 
           <div className={`nav-links ${isOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.id}
-                href={item.href}
+                to={item.href}
                 onClick={() => setIsOpen(false)}
                 className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 

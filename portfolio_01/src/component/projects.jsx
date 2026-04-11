@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaGithub, FaYoutube, FaPlayCircle, FaRocket } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaPlayCircle, FaRocket, FaGem, FaCloudMoon } from 'react-icons/fa';
+import { FaUserAstronaut } from 'react-icons/fa6';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Projects = () => {
@@ -10,7 +11,7 @@ const Projects = () => {
       technologies: ['HTML5', 'CSS3', 'Cosmic UI'],
       github: "https://github.com/nandini627/website2",
       youtube: "https://www.youtube.com/watch?v=m0Wa5p8lX-8",
-      icon: "🚀",
+      icon: <FaUserAstronaut className="cosmic-icon" style={{ fontSize: '1.8rem' }} />,
       accentColor: "#0B3D91",
       accentColorRgb: "11, 61, 145",
     },
@@ -19,7 +20,7 @@ const Projects = () => {
       technologies: ['HTML5', 'CSS3', 'JS'],
       github: "https://github.com/nandini627/website-4",
       youtube: "https://www.youtube.com/watch?v=PQOFuMWsulU",
-      icon: "💎",
+      icon: <FaGem className="cosmic-icon" style={{ fontSize: '1.8rem' }} />,
       accentColor: "#D4AF37",
       accentColorRgb: "212, 175, 55",
     },
@@ -28,7 +29,7 @@ const Projects = () => {
       technologies: ['HTML5', 'CSS3', 'UI/UX'],
       github: "https://github.com/nandini627/website-6",
       youtube: "https://www.youtube.com/watch?v=r4KhJcI5zMg",
-      icon: "🌌",
+      icon: <FaCloudMoon className="cosmic-icon" style={{ fontSize: '1.8rem' }} />,
       accentColor: "#8B5CF6",
       accentColorRgb: "139, 92, 246",
     }
@@ -62,7 +63,7 @@ const Projects = () => {
                     alt={project.title}
                   />
                   <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="play-button-overlay">
-                    <FaPlayCircle />
+                    <FaPlayCircle className="cosmic-icon" style={{ color: 'white' }} />
                   </a>
                 </div>
 
@@ -82,10 +83,10 @@ const Projects = () => {
                 {/* Links */}
                 <div className="project-links">
                   <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-                    <FaGithub /> Code
+                    <FaGithub className="cosmic-icon-sm" style={{ color: 'inherit' }} /> Code
                   </a>
                   <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="project-link yt-link" style={{ border: '1.5px solid #FF0000', color: '#FF0000', background: 'rgba(255,0,0,0.05)' }}>
-                    <FaYoutube /> Demo
+                    <FaYoutube className="cosmic-icon-sm" style={{ color: 'inherit' }} /> Demo
                   </a>
                 </div>
 
@@ -97,7 +98,7 @@ const Projects = () => {
         {/* Upcoming */}
         <div className="upcoming-projects reveal-on-scroll">
           <h3 className="upcoming-title">
-            <FaRocket /> Upcoming &amp; In Progress
+            <FaRocket className="cosmic-icon" style={{ fontSize: '2.5rem', marginRight: '15px' }} /> Upcoming &amp; In Progress
           </h3>
           <div className="upcoming-list">
             <div className="upcoming-item"><div className="upcoming-dot"></div><span>AI/ML Project using Python</span></div>

@@ -48,6 +48,7 @@ const Certificates = () => {
               className="cert-card-new reveal-on-scroll" 
               style={{ 
                 '--cert-color': cert.color,
+                '--float-delay': `${index * -1.5}s`,
                 transitionDelay: `${index * 0.1}s` 
               }}
             >
@@ -56,18 +57,18 @@ const Certificates = () => {
               <div className="cert-img-wrapper" onClick={() => window.open(cert.image, '_blank')}>
                 <img src={cert.image} alt={cert.title} className="cert-thumbnail" />
                 <div className="cert-img-overlay">
-                  <FaSearchPlus className="cert-zoom-icon" />
+                  <FaSearchPlus className="cert-zoom-icon cosmic-icon-sm" style={{ color: 'white' }} />
                   <span>Click to Preview</span>
                 </div>
               </div>
 
               <div className="cert-body">
                 <div className="cert-award-badge" style={{ borderColor: cert.color, color: cert.color, background: `${cert.color}15` }}>
-                  <FaAward /> Verified Certificate
+                  <FaAward className="cosmic-icon-sm" style={{ color: 'inherit' }} /> Verified Certificate
                 </div>
                 <h3 className="cert-title-new">{cert.title}</h3>
                 <div className="cert-issuer-new">
-                  <FaGraduationCap style={{ marginRight: 8, color: cert.color }} />
+                  <FaGraduationCap className="cosmic-icon-sm" style={{ marginRight: 8, color: cert.color }} />
                   {cert.issuer}
                 </div>
                 <div className="cert-year">{cert.date}</div>
@@ -80,7 +81,7 @@ const Certificates = () => {
                     className="cert-view-btn"
                     style={{ borderColor: cert.color, boxShadow: `0 5px 15px ${cert.color}20` }}
                   >
-                    Verify Credentials <FaExternalLinkAlt style={{ marginLeft: 8 }} />
+                    Verify Credentials <FaExternalLinkAlt className="cosmic-icon-sm" style={{ marginLeft: 8, color: 'inherit' }} />
                   </a>
                 </div>
               </div>

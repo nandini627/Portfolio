@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FaHeart, FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import { FaHeart, FaLinkedin, FaGithub, FaYoutube, FaTwitter, FaEnvelope, FaPaperPlane, FaMapMarkerAlt } from 'react-icons/fa';
 import { SiLeetcode, SiGmail } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 import NameLogo from './NameLogo';
 
 const Footer = () => {
@@ -46,6 +47,7 @@ const Footer = () => {
     <footer className="footer-modern" id="contact">
       <div className="footer-top-blur"></div>
       <div className="container">
+
         <div className="footer-contact-wrapper">
           <div className="footer-info-column">
             <div className="footer-logo-wrapper" style={{ marginBottom: '20px' }}>
@@ -56,31 +58,12 @@ const Footer = () => {
             <div className="footer-contact-info">
               <h3>Get In Touch</h3>
               <div className="footer-contact-item">
-                <span className="footer-contact-icon"><FaEnvelope /></span>
+                <span className="footer-contact-icon"><FaEnvelope className="cosmic-icon-sm" /></span>
                 <a href="mailto:bp623989@gmail.com">bp623989@gmail.com</a>
               </div>
               <div className="footer-contact-item">
-                <span className="footer-contact-icon">📍</span>
+                <span className="footer-contact-icon"><FaMapMarkerAlt className="cosmic-icon-sm" /></span>
                 <span>Gandhinagar, Gujarat</span>
-              </div>
-            </div>
-
-            <div className="footer-social-wrapper">
-              <h4>Follow Me</h4>
-              <div className="social-icon-row">
-                {socialLinks.map((link, index) => (
-                  <a 
-                    key={index} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="modern-social-icon"
-                    style={{ '--hover-color': link.color }}
-                    title={link.name}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
               </div>
             </div>
           </div>
@@ -123,18 +106,39 @@ const Footer = () => {
                 required
               ></textarea>
               <button type="submit" className="footer-submit-btn glowing-btn" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : <><FaPaperPlane /> Send Message</>}
+                {isSubmitting ? 'Sending...' : <><FaPaperPlane className="cosmic-icon-sm" style={{ color: 'inherit' }} /> Send Message</>}
               </button>
             </form>
           </div>
         </div>
+
+        <div className="footer-social-centering">
+          <div className="footer-social-wrapper">
+            <h4>Follow Me</h4>
+            <div className="social-icon-row">
+              {socialLinks.map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="modern-social-icon"
+                  style={{ '--hover-color': link.color }}
+                  title={link.name}
+                >
+                  <span className="cosmic-icon-sm" style={{ color: 'inherit' }}>{link.icon}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
         
         <div className="footer-bottom-bar">
-          <p>© {new Date().getFullYear()} Nandini Prajapati. Made with <FaHeart className="heart-icon" /> in Gujarat.</p>
+          <p>© {new Date().getFullYear()} Nandini Prajapati. Made with <FaHeart className="heart-icon cosmic-icon-sm" style={{ color: '#ff0000' }} /> in Gujarat.</p>
           <div className="footer-bottom-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Work</a>
+            <Link to="/about">About</Link>
+            <Link to="/skills">Skills</Link>
+            <Link to="/projects">Work</Link>
           </div>
         </div>
       </div>
