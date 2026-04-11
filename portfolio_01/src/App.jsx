@@ -11,18 +11,26 @@ import Certificates from './component/Certificates.jsx';
 import Footer from './component/Footer.jsx';
 import ScrollToSection from './component/ScrollToSection.jsx';
 
+import { Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
       <ScrollToSection />
       <UniverseBackground />
       <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Certificates />
-      <Education />
+      <Routes>
+        <Route path="/*" element={
+          <>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Certificates />
+            <Education />
+          </>
+        } />
+      </Routes>
       <Footer />
     </div>
   );
