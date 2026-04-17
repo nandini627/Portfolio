@@ -469,8 +469,8 @@ section {
 .hero-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  /* Switch to flex-start to allow manual vertical positioning */
+  align-items: center;
+  /* Centered for better vertical balance */
   width: 100%;
   gap: 50px;
   padding: 20px 0;
@@ -536,9 +536,7 @@ section {
   flex: 0.8;
   display: flex;
   justify-content: flex-end;
-  transform: translateY(-90px);
-  /* Adjusted for user preference */
-  align-items: flex-start;
+  align-items: center;
 }
 
 .photo-frame {

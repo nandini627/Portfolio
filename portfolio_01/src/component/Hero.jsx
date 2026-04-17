@@ -58,6 +58,31 @@ const Hero = () => {
   useScrollReveal();
   return (
     <section id="home" className="hero">
+      <style>{`
+        .hero-wrapper {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          width: 100% !important;
+        }
+        .hero-photo-side {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
+          transform: translateY(0) !important;
+        }
+        @media (max-width: 1024px) {
+          .hero-wrapper {
+            flex-direction: column !important;
+            text-align: center !important;
+          }
+          .hero-photo-side {
+            justify-content: center !important;
+            margin-bottom: 30px !important;
+            order: -1 !important;
+          }
+        }
+      `}</style>
       <div className="stars"></div>
       <div className="twinkling"></div>
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
@@ -82,9 +107,6 @@ const Hero = () => {
             <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '30px', transitionDelay: '0.4s' }}>
               <Link to="/projects" className="btn glowing-btn">
                 <SiSpacex className="cosmic-icon-sm" style={{ fontSize: '1.4rem', color: 'inherit' }} /> View Projects
-              </Link>
-              <Link to="/certificates" className="btn glowing-btn-outline" style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px' }}>
-                Certificates
               </Link>
               <a 
                 href="/Resume.pdf" 
@@ -143,7 +165,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s', transform: 'translateY(-90px)' }}>
+          <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
             <div className="photo-frame" style={{ width: '380px', height: '380px' }}>
               <div className="photo-placeholder">
                 <img 
