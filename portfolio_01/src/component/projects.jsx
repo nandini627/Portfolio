@@ -94,18 +94,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-
-        {/* Upcoming */}
-        <div className="upcoming-projects reveal-on-scroll">
-          <h3 className="upcoming-title">
-            <FaRocket className="cosmic-icon" style={{ fontSize: '2.5rem', marginRight: '15px' }} /> Upcoming &amp; In Progress
-          </h3>
-          <div className="upcoming-list">
-            <div className="upcoming-item"><div className="upcoming-dot"></div><span>AI/ML Project using Python</span></div>
-            <div className="upcoming-item"><div className="upcoming-dot"></div><span>Full-Stack E-commerce Website</span></div>
-            <div className="upcoming-item"><div className="upcoming-dot"></div><span>React Native Mobile App</span></div>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ import Projects from './component/projects.jsx';
 import Education from './component/Education.jsx';
 import Certificates from './component/Certificates.jsx';
 import Footer from './component/Footer.jsx';
+
 import ScrollToSection from './component/ScrollToSection.jsx';
 
 import { Routes, Route } from 'react-router-dom';
@@ -26,6 +27,7 @@ function App() {
             <About />
             <Skills />
             <Projects />
+
             <Certificates />
             <Education />
           </>

@@ -14,17 +14,43 @@ const Footer = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      alert('Thank you! Your message has been sent successfully. I\'ll get back to you soon!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+    // Using FormSubmit for backend-less form submission directly to your email
+    // This requires ZERO setup or API keys!
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/bp623989@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Portfolio Message from ${formData.name}`,
+          _template: "table" // Beautiful email template
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success === "true" || response.ok) {
+        alert('Thank you! Your message has been sent successfully.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('Oops! Something went wrong getting your message sent.');
+      }
+    } catch (error) {
+      alert('Network error while sending the message. Please try again.');
+      console.error('Submission Error:', error);
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {

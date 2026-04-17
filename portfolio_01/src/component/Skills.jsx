@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt } from 'react-icons/fa';
-import { SiC, SiPostman } from 'react-icons/si';
+import { SiC, SiPostman, SiCplusplus, SiTailwindcss, SiRender, SiVercel, SiNetlify } from 'react-icons/si';
 import { RiNodejsLine } from 'react-icons/ri';
 import useScrollReveal from '../hooks/useScrollReveal';
 
@@ -14,6 +14,7 @@ const Skills = () => {
         { name: 'CSS3',       icon: <FaCss3Alt />,     color: '#1572B6' },
         { name: 'JavaScript', icon: <FaJs />,          color: '#F7DF1E' },
         { name: 'React.js',   icon: <FaReact />,       color: '#61DAFB' },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
       ]
     },
     {
@@ -21,6 +22,7 @@ const Skills = () => {
       skills: [
         { name: 'Node.js',    icon: <RiNodejsLine />,  color: '#339933' },
         { name: 'C Language', icon: <SiC />,           color: '#A8B9CC' },
+        { name: 'C++',        icon: <SiCplusplus />,   color: '#00599C' },
       ]
     },
     {
@@ -28,6 +30,9 @@ const Skills = () => {
       skills: [
         { name: 'Git & GitHub', icon: <FaGitAlt />,   color: '#F05032' },
         { name: 'Postman',      icon: <SiPostman />,  color: '#FF6C37' },
+        { name: 'Render',       icon: <SiRender />,   color: '#000000' },
+        { name: 'Vercel',       icon: <SiVercel />,   color: '#FFFFFF' },
+        { name: 'Netlify',      icon: <SiNetlify />,  color: '#00C7B7' },
       ]
     }
   ];

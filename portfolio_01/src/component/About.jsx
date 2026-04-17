@@ -3,11 +3,20 @@ import { FaMapMarkerAlt, FaEnvelope, FaGraduationCap, FaUniversity, FaIdCard } f
 import { FaUserAstronaut } from 'react-icons/fa6';
 import { SiTarget } from 'react-icons/si';
 import useScrollReveal from '../hooks/useScrollReveal';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   useScrollReveal();
   return (
+
     <section id="about" className="about">
+      <div>
+        <Helmet>
+          <title>About - Nandini Prajapati</title>
+          <meta name="description" content="About - Nandini Prajapati" />
+          <meta name="keywords" content="About - Nandini Prajapati" />
+        </Helmet>
+      </div>
       <div className="container">
         <h2 className="section-title reveal-on-scroll">
           <span className="section-title-bg">About Me</span>
@@ -16,7 +25,7 @@ const About = () => {
         <div className="about-grid">
           <div className="about-card cosmic-card reveal-on-scroll">
             <div className="card-header">
-              <h3>Who Am I?</h3>
+              <h3>Know about me</h3>
               <div className="card-icon">
                 <FaUserAstronaut className="cosmic-icon" />
               </div>

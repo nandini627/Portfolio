@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaRocket, FaFileDownload } from 'react-icons/fa';
-import { SiSpacex } from 'react-icons/si';
+import { FaRocket, FaFileDownload, FaLinkedin, FaGithub, FaYoutube, FaTwitter } from 'react-icons/fa';
+import { SiSpacex, SiLeetcode, SiGmail } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 
@@ -94,9 +94,29 @@ const Hero = () => {
               >
                 <FaFileDownload className="cosmic-icon-sm" style={{ marginRight: '8px' }} /> Resume
               </a>
-              <Link to="/contact" className="btn-link" style={{ marginLeft: '10px', alignSelf: 'center', color: 'var(--theme-pink)', fontWeight: 700 }}>
-                Let's Connect →
-              </Link>
+              
+              <div className="social-icon-row" style={{ display: 'flex', gap: '12px', alignItems: 'center', marginLeft: '10px' }}>
+                {[
+                  { name: 'GitHub', url: 'https://github.com/nandini627', icon: <FaGithub />, color: '#ffffff' },
+                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nandini-prajapati-3473493a1', icon: <FaLinkedin />, color: '#0077b5' },
+                  { name: 'LeetCode', url: 'https://leetcode.com/u/KVXpAaGWcH/', icon: <SiLeetcode />, color: '#ffa116' },
+                  { name: 'YouTube', url: 'https://www.youtube.com/@NandiniPrajapati-n8z', icon: <FaYoutube />, color: '#ff0000' },
+                  { name: 'Twitter', url: 'https://x.com/NandiniPraj4434', icon: <FaTwitter />, color: '#1da1f2' },
+                  { name: 'Email', url: 'mailto:bp623989@gmail.com', icon: <SiGmail />, color: '#ea4335' }
+                ].map((link, index) => (
+                  <a 
+                    key={index} 
+                    href={link.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="modern-social-icon"
+                    style={{ '--hover-color': link.color, width: '40px', height: '40px', fontSize: '1.1rem' }}
+                    title={link.name}
+                  >
+                    <span className="cosmic-icon-sm" style={{ color: 'inherit' }}>{link.icon}</span>
+                  </a>
+                ))}
+              </div>
             </div>
             
             <div className="hero-stats reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
