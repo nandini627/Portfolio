@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaFileDownload } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import NameLogo from './NameLogo';
 
@@ -14,7 +14,8 @@ const Navbar = () => {
     { name: 'CERTIFICATES', href: '/certificates', id: 'certificates' },
     { name: 'PROJECTS', href: '/projects', id: 'projects' },
     { name: 'EDUCATION', href: '/education', id: 'education' },
-    { name: 'CONTACT', href: '/contact', id: 'contact' }
+    { name: 'CONTACT', href: '/contact', id: 'contact' },
+    { name: 'RESUME', href: 'https://drive.google.com/uc?export=download&id=1rC9OiHr1vDcvH9D7WIB0WpPZzE6vDnER', id: 'resume', external: true, isButton: true, icon: <FaFileDownload className="btn-icon" /> }
   ];
 
   useEffect(() => {
@@ -51,14 +52,28 @@ const Navbar = () => {
 
           <div className={`nav-links ${isOpen ? 'open' : ''}`}>
             {navItems.map((item) => (
-              <Link
-                key={item.id}
-                to={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-              >
-                {item.name}
-              </Link>
+              item.external ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={item.isButton ? "Nandini_Prajapati_Resume.pdf" : undefined}
+                  className={item.isButton ? "nav-btn" : "nav-link"}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.icon} {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.id}
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
 

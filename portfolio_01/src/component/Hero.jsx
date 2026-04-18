@@ -104,41 +104,40 @@ const Hero = () => {
               First-year B.E. Computer Science student from CodingGita x Swaminarayan University. 
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
-            <div className="hero-buttons reveal-on-scroll" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginBottom: '30px', transitionDelay: '0.4s' }}>
+            <div className="hero-buttons" style={{ display: 'flex', gap: '25px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0' }}>
               <Link to="/projects" className="btn glowing-btn">
                 <SiSpacex className="cosmic-icon-sm" style={{ fontSize: '1.4rem', color: 'inherit' }} /> View Projects
               </Link>
               <a 
-                href="/Resume.pdf" 
+                href="https://drive.google.com/uc?export=download&id=1rC9OiHr1vDcvH9D7WIB0WpPZzE6vDnER" 
                 download="Nandini_Prajapati_Resume.pdf"
                 className="btn glowing-btn-outline" 
                 style={{ background: 'transparent', border: '1.5px solid var(--theme-pink)', color: 'var(--theme-white)', padding: '12px 24px', textDecoration: 'none', display: 'flex', alignItems: 'center' }}
               >
                 <FaFileDownload className="cosmic-icon-sm" style={{ marginRight: '8px' }} /> Resume
               </a>
-              
-              <div className="social-icon-row" style={{ display: 'flex', gap: '12px', alignItems: 'center', marginLeft: '10px' }}>
-                {[
-                  { name: 'GitHub', url: 'https://github.com/nandini627', icon: <FaGithub />, color: '#ffffff' },
-                  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nandini-prajapati-3473493a1', icon: <FaLinkedin />, color: '#0077b5' },
-                  { name: 'LeetCode', url: 'https://leetcode.com/u/KVXpAaGWcH/', icon: <SiLeetcode />, color: '#ffa116' },
-                  { name: 'YouTube', url: 'https://www.youtube.com/@NandiniPrajapati-n8z', icon: <FaYoutube />, color: '#ff0000' },
-                  { name: 'Twitter', url: 'https://x.com/NandiniPraj4434', icon: <FaTwitter />, color: '#1da1f2' },
-                  { name: 'Email', url: 'mailto:bp623989@gmail.com', icon: <SiGmail />, color: '#ea4335' }
-                ].map((link, index) => (
-                  <a 
-                    key={index} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="modern-social-icon"
-                    style={{ '--hover-color': link.color, width: '40px', height: '40px', fontSize: '1.1rem' }}
-                    title={link.name}
-                  >
-                    <span className="cosmic-icon-sm" style={{ color: 'inherit' }}>{link.icon}</span>
-                  </a>
-                ))}
-              </div>
+            </div>
+            <div className="social-icon-row" style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: '30px', marginBottom: '40px' }}>
+              {[
+                { name: 'GitHub', url: 'https://github.com/nandini627', icon: <FaGithub />, color: '#ffffff' },
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nandini-prajapati-3473493a1', icon: <FaLinkedin />, color: '#0077b5' },
+                { name: 'LeetCode', url: 'https://leetcode.com/u/KVXpAaGWcH/', icon: <SiLeetcode />, color: '#ffa116' },
+                { name: 'YouTube', url: 'https://www.youtube.com/@NandiniPrajapati-n8z', icon: <FaYoutube />, color: '#ff0000' },
+                { name: 'Twitter', url: 'https://x.com/NandiniPraj4434', icon: <FaTwitter />, color: '#1da1f2' },
+                { name: 'Email', url: 'mailto:bp623989@gmail.com', icon: <SiGmail />, color: '#ea4335' }
+              ].map((link, index) => (
+                <a 
+                  key={index} 
+                  href={link.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="modern-social-icon"
+                  style={{ '--hover-color': link.color, width: '40px', height: '40px', fontSize: '1.1rem' }}
+                  title={link.name}
+                >
+                  <span className="cosmic-icon-sm" style={{ color: 'inherit' }}>{link.icon}</span>
+                </a>
+              ))}
             </div>
             
             <div className="hero-stats reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>

@@ -448,6 +448,41 @@ section {
   width: 100%;
 }
 
+/* Navbar Resume Button */
+.nav-btn {
+  background: var(--theme-pink);
+  color: var(--theme-white) !important;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+  border: 1.5px solid transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(255, 0, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn .btn-icon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .nav-btn {
+    margin-top: 10px;
+    width: fit-content;
+  }
+}
+
 .menu-btn {
   display: none;
   background: none;
