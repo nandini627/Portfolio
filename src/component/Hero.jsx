@@ -88,7 +88,7 @@ const Hero = () => {
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div className="hero-wrapper">
           <div className="hero-content fade-in">
-            <div className="hero-badge reveal-on-scroll" style={{ display: 'inline-flex', padding: '10px 25px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50px', marginBottom: '30px', border: '1.5px solid rgba(255, 255, 255, 0.2)' }}>
+            <div className="hero-badge reveal-on-scroll" style={{ display: 'inline-flex', padding: '8px 20px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '50px', marginBottom: '20px', border: '1.5px solid rgba(255, 255, 255, 0.2)', fontSize: '0.9rem' }}>
               <FaRocket className="cosmic-icon-sm" style={{ marginRight: '10px' }} /> Aspiring Software Developer
             </div>
             <h1 className="hero-title reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>
@@ -104,7 +104,7 @@ const Hero = () => {
               First-year B.E. Computer Science student from CodingGita x Swaminarayan University. 
               Eager to contribute to the evolving tech landscape with creativity and innovation.
             </p>
-            <div className="hero-buttons" style={{ display: 'flex', gap: '25px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0' }}>
+            <div className="hero-buttons" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'flex-start', width: '100%', marginBottom: '15px' }}>
               <Link to="/projects" className="btn glowing-btn">
                 <SiSpacex className="cosmic-icon-sm" style={{ fontSize: '1.4rem', color: 'inherit' }} /> View Projects
               </Link>
@@ -117,7 +117,7 @@ const Hero = () => {
                 <FaFileDownload className="cosmic-icon-sm" style={{ marginRight: '8px' }} /> Resume
               </a>
             </div>
-            <div className="social-icon-row" style={{ display: 'flex', gap: '15px', alignItems: 'center', marginTop: '30px', marginBottom: '40px' }}>
+            <div className="social-icon-row" style={{ display: 'flex', gap: '15px', alignItems: 'center', justifyContent: 'flex-start', width: '100%', marginTop: '20px', marginBottom: '25px' }}>
               {[
                 { name: 'GitHub', url: 'https://github.com/nandini627', icon: <FaGithub />, color: '#ffffff' },
                 { name: 'LinkedIn', url: 'https://www.linkedin.com/in/nandini-prajapati-3473493a1', icon: <FaLinkedin />, color: '#0077b5' },
@@ -165,7 +165,7 @@ const Hero = () => {
           </div>
 
           <div className="hero-photo-side reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
-            <div className="photo-frame" style={{ width: '380px', height: '380px' }}>
+            <div className="photo-frame" style={{ width: '340px', height: '340px' }}>
               <div className="photo-placeholder">
                 <img 
                   src="https://res.cloudinary.com/dxnsg3spg/image/upload/v1770363089/Screenshot_2026-02-06_125845_dwc6nw.png" 
@@ -174,8 +174,8 @@ const Hero = () => {
               </div>
               
               {/* Added subtle floating glow effects around the photo frame */}
-              <div style={{ position: 'absolute', top: '-20px', left: '-20px', width: '100px', height: '100px', background: 'var(--theme-pink)', filter: 'blur(80px)', opacity: 0.4, zIndex: -1 }}></div>
-              <div style={{ position: 'absolute', bottom: '-20px', right: '-20px', width: '100px', height: '100px', background: 'var(--theme-purple)', filter: 'blur(80px)', opacity: 0.4, zIndex: -1 }}></div>
+              <div style={{ position: 'absolute', top: '-10px', left: '-10px', width: '80px', height: '80px', background: 'var(--theme-pink)', filter: 'blur(70px)', opacity: 0.3, zIndex: -1 }}></div>
+              <div style={{ position: 'absolute', bottom: '-10px', right: '-10px', width: '80px', height: '80px', background: 'var(--theme-purple)', filter: 'blur(70px)', opacity: 0.3, zIndex: -1 }}></div>
             </div>
           </div>
         </div>

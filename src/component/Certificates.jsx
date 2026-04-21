@@ -12,81 +12,6 @@ const Certificates = () => {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const containerWidth = container.clientWidth;
-    const containerCenter = container.scrollLeft + containerWidth / 2;
-    const cardWidth = 320;
-    const gap = 35;
-    const distanceThreshold = 180;
-
-    let closestIndex = 0;
-    let closestDistance = Infinity;
-
-    // Apply focal effects and dome shape directly to DOM for 60fps performance
-    Array.from(container.children).forEach((child, index) => {
-      const childCenter = child.offsetLeft + child.clientWidth / 2;
-      const distance = Math.abs(containerCenter - childCenter);
-      
-      // Calculate continuous distance factor
-      const distFac = Math.pow(Math.max(0, (distance - distanceThreshold) / (cardWidth + gap)), 1.5);
-      const clampedDistFac = Math.min(distFac, 1.5);
-
-      // Update CSS variable for transform/opacity/blur mapping in index.css
-      child.style.setProperty('--dist-fac', clampedDistFac);
-      
-      // Determine active index for logic (like badges or dots)
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = index;
-      }
-
-      // Toggle focus classes
-      if (distance < (cardWidth + gap) / 2) {
-        child.classList.add('active-cert');
-      } else {
-        child.classList.remove('active-cert');
-      }
-    });
-
-    if (closestIndex !== activeIndex) {
-      setActiveIndex(closestIndex);
-    }
-  };
-
-  // Run scroll detection and image preloading on mount
-  useEffect(() => {
-    // Preload all certificate images
-    certifications.forEach(cert => {
-      const img = new Image();
-      img.src = cert.image;
-    });
-
-    // Initial check for positioning - do it instantly then re-check
-    handleScroll();
-    const initialTimer = setTimeout(handleScroll, 50);
-    
-    // Re-check on window resize
-    window.addEventListener("resize", handleScroll);
-    return () => {
-      clearTimeout(initialTimer);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []); 
-
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
-    }
-  };
-
   const certifications = [
     {
       title: "Certificate of Participation (Local Hosters)",
@@ -130,6 +55,96 @@ const Certificates = () => {
     }
   ];
 
+  // Triple the list for infinite scroll effect
+  const extendedCerts = [...certifications, ...certifications, ...certifications];
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const containerWidth = container.clientWidth;
+    const containerCenter = container.scrollLeft + containerWidth / 2;
+    const cardWidth = 320;
+    const gap = 35;
+    const distanceThreshold = 180;
+
+    // Infinite loop logic: If we scroll too far left or right, jump to middle set
+    const totalContentWidth = container.scrollWidth;
+    const singleSetWidth = totalContentWidth / 3;
+
+    if (container.scrollLeft < singleSetWidth - containerWidth) {
+      container.scrollLeft += singleSetWidth;
+    } else if (container.scrollLeft > singleSetWidth * 2) {
+      container.scrollLeft -= singleSetWidth;
+    }
+
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    Array.from(container.children).forEach((child, index) => {
+      const childCenter = child.offsetLeft + child.clientWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      const distFac = Math.pow(Math.max(0, (distance - distanceThreshold) / (cardWidth + gap)), 1.5);
+      const clampedDistFac = Math.min(distFac, 1.5);
+      child.style.setProperty('--dist-fac', clampedDistFac);
+      
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index % certifications.length;
+      }
+
+      if (distance < (cardWidth + gap) / 2) {
+        child.classList.add('active-cert');
+      } else {
+        child.classList.remove('active-cert');
+      }
+    });
+
+    if (closestIndex !== activeIndex) {
+      setActiveIndex(closestIndex);
+    }
+  };
+
+  useEffect(() => {
+    certifications.forEach(cert => {
+      const img = new Image();
+      img.src = cert.image;
+    });
+
+    // Center the middle set on load
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const cardWidth = 320;
+      const gap = 35;
+      const totalWidth = container.scrollWidth;
+      const singleSetWidth = totalWidth / 3;
+      
+      // Calculate scroll to center the first card of the middle set
+      const scrollTo = singleSetWidth - (container.clientWidth / 2) + (cardWidth / 2);
+      container.scrollLeft = scrollTo;
+    }
+
+    handleScroll();
+    const initialTimer = setTimeout(handleScroll, 100);
+    
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      clearTimeout(initialTimer);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []); 
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -355, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 355, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="certificates" className="certificates">
       <div className="container">
@@ -142,21 +157,21 @@ const Certificates = () => {
             <FaChevronLeft />
           </button>
           
-          <div 
-            className="cert-grid" 
-            ref={scrollRef} 
-            onScroll={handleScroll}
-          >
-            {certifications.map((cert, index) => (
-              <div 
-                key={index} 
-                className="cert-card-new"
-                style={{ 
-                  '--cert-color': cert.color,
-                  '--float-delay': `${index * -1.5}s`,
-                  transitionDelay: `${index * 0.1}s` 
-                }}
-              >
+            <div 
+              className="cert-grid" 
+              ref={scrollRef} 
+              onScroll={handleScroll}
+            >
+              {extendedCerts.map((cert, index) => (
+                <div 
+                  key={index} 
+                  className="cert-card-new"
+                  style={{ 
+                    '--cert-color': cert.color,
+                    '--float-delay': `${index * -1.5}s`,
+                    transitionDelay: `${(index % certifications.length) * 0.1}s` 
+                  }}
+                >
                 <div className="cert-top-bar" style={{ background: cert.color }}></div>
                 
                 <div className="cert-img-wrapper" onClick={() => window.open(cert.image, '_blank')}>
