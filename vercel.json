@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://nandini-prajapati-portfolio.vercel.app/$1",
+      "permanent": true
+    }
+  ]
+}
